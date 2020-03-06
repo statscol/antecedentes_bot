@@ -7,3 +7,4 @@ requisitos:
 * pytesseract : descargar la versión de preferencia en https://github.com/UB-Mannheim/tesseract/wiki
 * selenium
 
+Special thanks to all the Stack Overflow Community.
