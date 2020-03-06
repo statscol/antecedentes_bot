@@ -4,10 +4,6 @@ Created on Thu Mar  5 14:17:33 2020
 
 @author: jfpd1764
 """
-
-### antecedentes policia
-
-
 import pytesseract as pyst
 import sys
 import argparse
@@ -23,33 +19,17 @@ import time
 
 ##important to first install tesseract
 
-pyst.pytesseract.tesseract_cmd = 'C:/Archivos de programa/tesseract.exe'
+pyst.pytesseract.tesseract_cmd = 'PATH_TO_tesseract.exe'
 
 
 def resolve2(img_sel):
     captcha_text= pyst.image_to_string(img_sel)
     return(captcha_text)
 
-
-
 ##path to your webdriver
-webdr = "C:/Users/jfpd1764/Desktop/captcha/chromedriver.exe"
+webdr = "PATH_TO_chromedriver.exe"
 
 driver = Chrome(webdr)
-
-url="https://antecedentes.policia.gov.co:7005/WebJudicial/"
-driver.get(url)
-
-###GET IMAGE
-#captcha=driver.find_element_by_id("capimg")
-
-#url_captcha=captcha.get_attribute("src")
-
-#driver.find_element_by_id("your-image-id").get_attribute("src")
-
-
-#open('out.jpg', 'wb').write(img)
-
 
 def get_captcha(driver, element, path):
     # now that we have the preliminary stuff out of the way time to get that image :D
@@ -84,7 +64,7 @@ def get_captcha(driver, element, path):
 #get_captcha(driver,element=img, path="C:/Users/jfpd1764/Desktop/captcha/")
 
 
-def access_antecedentes(ced=1144171764,path_aux="C:/Users/jfpd1764/Desktop/captcha/",silent=False):
+def access_antecedentes(ced="YOUR_ID_BY_DEFAULT",path_aux="C:/Users/jfpd/Desktop/captcha/",silent=False):
     """
     ced: Cédula de Ciudadanía Colombiana
     path_aux: destino de imágnes auxiliares a guardar
@@ -141,6 +121,6 @@ def access_antecedentes(ced=1144171764,path_aux="C:/Users/jfpd1764/Desktop/captc
     driver.close()
     return(nombre)
     
-access_antecedentes(ced="1144171764")
+access_antecedentes(ced="YOUR_ID_HERE",silent=False)
         
 
